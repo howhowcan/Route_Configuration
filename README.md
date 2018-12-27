@@ -116,7 +116,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
     5.2 Go to terminal B and run `SimpleController.py`:
 `sudo ryu-manager SimpleController.py --observe-links`    
     5.3 Go to terminal A and input the iperf commands:
-`mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &`
+`mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &`   
 `mininet> h2 iperf -c 10.0.0.1 -u –i 1 –p 5566`   
     5.4 Use `mininet> exit` to leave CLI mode   
     5.5 Go to terminal B and use `ctrl+z` to leave the controller   
