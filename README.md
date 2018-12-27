@@ -21,18 +21,18 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 2. Clone my repo by `git clone https://github.com/nctucn/lab3-howhowcan.git Route_Configuration`
 3. Start the service of Open vSwitch by `sudo service openvswitch-switch start`
 4. Change the directory: `cd ./Route_Configuration/src/`
-5. Run topo.py: `sudo mn --custom topo.py --topo topo --link tc --controller remote`
+5. Run `topo.py`: `sudo mn --custom topo.py --topo topo --link tc --controller remote`
    `sudo mn`: use the highest authorization to execute mininet   
-     `--custom topo.py`: use topo.py for the topology of the internet   
+     `--custom topo.py`: use `topo.py` for the topology of the internet   
      `--topo topo`: Open the custom topology named `topo` in the .py file   
      `--link tc`: link with symmetric TC interfaces   
      `--controller remote`: use remote controller   
 6. If succeed, you will go into CLI mode
-7. Set up another connection to the same container (Call it terminal B) and change the directory: 
+7. Set up another connection to the same container (Call it terminal B) and change the directory:   
 `cd ./Route_Configuration/src/`
-8. Run SimpleController.py: `sudo ryu-manager SimpleController.py --observe-links`
+8. Run `SimpleController.py`: `sudo ryu-manager SimpleController.py --observe-links`
     * `sudo ryu-manager`: use the highest authorization to execute ryu-manager  
-    `SimpleController.py`: use SimpleController.py to control the topology   
+    `SimpleController.py`: use `SimpleController.py` to control the topology   
     `--observe-links`: observe links and discover events
 9. Go to terminal A and input the following iperf commands:
     * `mininet> h1 iperf -s -u -i 1 -p 5566 > ./out/result1 &`    
@@ -54,16 +54,16 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 10. Use `mininet> exit` to leave CLI mode
 11. Go to terminal B and use `ctrl+z` to leave the controller
 12. Use `sudo mn -c` to clean the data
-13. Go to terminal A and run topo.py again
-14. Go to terminal B and run controller.py: 
+13. Go to terminal A and run `topo.py` again
+14. Go to terminal B and run `controller.py`: 
 `sudo ryu-manager controller.py --observe-links`
-15. Go to terminal A and input the following iperf commands:
-`mininet> h1 iperf -s -u -i 1 -p 5566 > ./out/result2 &`
+15. Go to terminal A and input the following iperf commands:   
+`mininet> h1 iperf -s -u -i 1 -p 5566 > ./out/result2 &`   
 `mininet> h2 iperf -c 10.0.0.1 -u –i 1 -p 5566`
 16. Compare the difference of two results
-* Use SimpleController.py:
+* Use `SimpleController.py`:
 ![](https://i.imgur.com/HDWwduI.jpg)
-* Use controller.py:
+* Use `controller.py`:
 ![](https://i.imgur.com/LBfzIYl.jpg)
 
 
@@ -89,31 +89,31 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 2. Example of Ryu SDN    
     2.1 After Task 1 was done, go to terminal A and change the directory: 
     `cd ./Route_Configuration/src/`    
-    2.2 Run SimpleTopo.py: `sudo mn --custom SimpleTopo.py --topo topo --link tc --controller remote`     
+    2.2 Run `SimpleTopo.py`: `sudo mn --custom SimpleTopo.py --topo topo --link tc --controller remote`     
     2.3 Open another terminal connecting to the same container (call it terminal B)     
     2.4 Change the directory: `cd ./Route_Configuration/src/`     
-    2.5 Run SimpleController.py: `sudo ryu-manager SimpleController.py --observe-links`     
+    2.5 Run `SimpleController.py`: `sudo ryu-manager SimpleController.py --observe-links`     
     2.6 Go to terminal A and use `mininet> exit` to leave CLI mode     
     2.7 Go to terminal B and use `ctrl+z` to leave the controller     
     2.8 Use `sudo mn -c` to clean the data
 3. Mininet Topology     
-    3.1 Go to terminal A and enter the command `cp SimpleTopo.py topo.py` to duplicate the example code SimpleTopo.py and name it topo.py     
-    3.2 Use `vim topo.py` to modify topo.py by adding some constraints and save the change     
-    3.3 Run the topo.py: `sudo mn --custom topo.py --topo topo --link tc --controller remote`     
-    3.4 Go to terminal B and run the SimpleController.py: `sudo ryu-manager SimpleController.py --observe-links`    
+    3.1 Go to terminal A and enter the command `cp SimpleTopo.py topo.py` to duplicate the example code `SimpleTopo.py` and name it `topo.py`     
+    3.2 Use `vim topo.py` to modify `topo.py` by adding some constraints and save the change     
+    3.3 Run `topo.py`: `sudo mn --custom topo.py --topo topo --link tc --controller remote`     
+    3.4 Go to terminal B and run `SimpleController.py`: `sudo ryu-manager SimpleController.py --observe-links`    
     3.5 Go to terminal A and use `mininet> exit` to leave CLI mode    
     3.6 Go to terminal B and use `ctrl+z` to leave the controller    
     3.7 Use `sudo mn -c` to clean the data
 4. Ryu Controller    
-    4.1 Go to terminal B and trace the code SimpleController.py: `vim SimpleController.py`     
-    4.2 After figuring out the meaning of the code, duplicate the example code SimpleController.py and name it controller.py: 
+    4.1 Go to terminal B and trace the code `SimpleController.py`: `vim SimpleController.py`     
+    4.2 After figuring out the meaning of the code, duplicate the example code `SimpleController.py` and name it `controller.py`: 
 `cp SimpleController.py controller.py`     
-    4.3 Modify controller.py according to the fowarding rules in the slide:
+    4.3 Modify `controller.py` according to the fowarding rules in the slide:
 `vim controller.py`     
 5. Measurement     
-    5.1 Go to terminal A and run topo.py:
+    5.1 Go to terminal A and run `topo.py`:
 `sudo mn --custom topo.py --topo topo --link tc --controller remote`     
-    5.2 Go to terminal B and run SimpleController.py:
+    5.2 Go to terminal B and run `SimpleController.py`:
 `sudo ryu-manager SimpleController.py --observe-links`    
     5.3 Go to terminal A and input the iperf commands:
 `mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result1 &`
@@ -121,9 +121,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
     5.4 Use `mininet> exit` to leave CLI mode   
     5.5 Go to terminal B and use `ctrl+z` to leave the controller   
     5.6 Use `sudo mn -c` to clean the data   
-    5.7 Go to terminal A and run topo.py:
+    5.7 Go to terminal A and run `topo.py`:
 `sudo mn --custom topo.py --topo topo --link tc --controller remote`   
-    5.8 Go to terminal B and run controller.py:
+    5.8 Go to terminal B and run `controller.py`:
 `sudo ryu-manager controller.py --observe-links`   
     5.9 Go to terminal A and input the iperf commands:
 `mininet> h1 iperf -s -u -i 1 –p 5566 > ./out/result2 &`
@@ -154,9 +154,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 6. Why need to set "`ip_proto=17`" in the flow entry?
    Because we use UDP connection in this test.   
 7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.   
-   The loss rate of SimpleController.py is 1.7%, whereas the one of controller.py is 2.2%.   
+   The loss rate of `SimpleController.py` is 1.7%, whereas the one of `controller.py` is 2.2%.   
 8. Which forwarding rule is better? Why?   
-   The one use SimpleController.py, because the loss rate is lower.   
+   The one use `SimpleController.py`, because the loss rate is lower.   
 ---
 ## References
 
