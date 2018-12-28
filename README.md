@@ -21,7 +21,7 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 2. Clone my repo by `git clone https://github.com/nctucn/lab3-howhowcan.git Route_Configuration`
 3. Start the service of Open vSwitch by `sudo service openvswitch-switch start`
 4. Change the directory: `cd ./Route_Configuration/src/`
-5. Run `topo.py`: `sudo mn --custom topo.py --topo topo --link tc --controller remote`
+5. Run `topo.py`: `sudo mn --custom topo.py --topo topo --link tc --controller remote`    
    `sudo mn`: use the highest authorization to execute mininet   
      `--custom topo.py`: use `topo.py` for the topology of the internet   
      `--topo topo`: Open the custom topology named `topo` in the .py file   
@@ -62,9 +62,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 `mininet> h2 iperf -c 10.0.0.1 -u –i 1 -p 5566`
 16. Compare the difference of two results
 * Use `SimpleController.py`:
-![](https://i.imgur.com/HDWwduI.jpg)
+![](https://i.imgur.com/3T1rNzD.jpg)
+
 * Use `controller.py`:
-![](https://i.imgur.com/LBfzIYl.jpg)
+![](https://i.imgur.com/78ITjXR.jpg)
+
 
 
 ---
@@ -154,9 +156,9 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
 6. Why need to set "`ip_proto=17`" in the flow entry?
    Because we use UDP connection in this test.   
 7. Compare the differences between the iPerf results of `SimpleController.py` and `controller.py` in detail.   
-   The loss rate of `SimpleController.py` is 1.7%, whereas the one of `controller.py` is 2.2%.   
+   The delay and the loss rate of `SimpleController.py` are 0.064ms and 2.7%, whereas the ones of `controller.py` are 0.009ms and 3.1%.   
 8. Which forwarding rule is better? Why?   
-   The one use `SimpleController.py`, because the loss rate is lower.   
+   The one use `controller.py`, because the loss rate of using `controller.py` is close to using `SimpleController.py`, but the delay is much smaller.   
 ---
 ## References
 
