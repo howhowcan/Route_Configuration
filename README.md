@@ -144,11 +144,11 @@ In this lab, we are going to write a Python program with Ryu SDN framework to bu
    To inherit the father class `app_manager` for the beginning of the initiaion.   
 4. Explain the following code in `controller.py`.
     ```python
-    @set_ev_cls(ofp_event.EventOFPPacketIn, CONFIG_DISPATCHER)
+    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     ```
    `@set_ev_cls` is a decorator to check which event and state the subprogram stands for   
    `ofp_event.EventOFPPacketIn`: Handling the packet-in event   
-   `CONFIG_DISPATCHER`: Under the state of getting information of switch features   
+   `MAIN_DISPATCHER`: Switch-features message received and sent set-config messages   
 5. What is the meaning of “datapath” in `controller.py`?
    The switch in the topology using OpenFlow.   
 6. Why need to set "`ip_proto=17`" in the flow entry?
